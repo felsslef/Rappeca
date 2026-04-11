@@ -23,18 +23,18 @@
         </div>
     </header>
 
-    <h1>Página Rapecca</h1>
+   
     <div class="carousel-container">
         <div class="carousel">
-            <div class="slide active"><img src="../img/imagem1.jpg" alt="Imagem 1"></div>
-            <div class="slide"><img src="../img/imagem2.jpg" alt="Imagem 2"></div>
+            <div class="slide active"><img src="../img/carrossel1.jpg" alt="Imagem 1"></div>
+            <div class="slide"><img src="../img/carrossel2.jpg" alt="Imagem 2"></div>
             <div class="slide"><img src="../img/imagem3.jpg" alt="Imagem 3"></div>
             <button class="prev">‹</button>
             <button class="next">›</button>
+            <div class="carousel-caption">Descrição da imagem atual.</div>
         </div>
-        <div class="description">Descrição da imagem atual.</div>
     </div>
-    <p><a href="index.html">Voltar ao início</a></p>
+    
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
@@ -47,7 +47,7 @@
         function showSlide(index) {
             slides.forEach(slide => slide.classList.remove('active'));
             slides[index].classList.add('active');
-            document.querySelector('.description').textContent = descriptions[index];
+            document.querySelector('.carousel-caption').textContent = descriptions[index];
         }
 
         document.querySelector('.next').addEventListener('click', () => {
