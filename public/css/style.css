@@ -16,7 +16,7 @@ header nav div{
     padding: 0px 20px;
 }
 
-header {position:fixed; top:2%; left:20%; right:0; background:#DFC7B1; z-index:1000px; box-shadow:0 2px 8px #0F4129;  border-radius: 50px; width: 60%; padding: 1%;}
+header {position:fixed; top:2%; left:12.5%; right:0; background:#DFC7B1; z-index:1000px; box-shadow:0 2px 8px #0F4129;  border-radius: 50px; width: 75%; padding: 1.2%;}
 
 
 body {
@@ -27,18 +27,25 @@ body {
     background-color: #9AA36A;
 }
 
+.rapecca-page {
+    background-image: url('../img/folhas.png');
+    background-repeat: repeat-y;
+    background-position: right top;
+    background-size: auto 1300px;
+}
+
 header .nav-wrapper {display:flex; align-items:center; justify-content:space-between; max-width:600px; margin:auto; padding:10px 16px; position: relative;}
 header h1 {font-size:1.3rem; margin:0;}
-header img {position: absolute; top: -40px; height: 120px; left: -180px; z-index: 1001; margin: 0;}
-header nav ul {display:flex; gap:1rem; list-style:none; margin:0; padding:0;}
-header nav a {text-decoration:none; color:#0F4129; font-weight:600; margin: 13px;}
+header img {position: absolute; top: -40px; height: 120px; left: -250px; z-index: 1001; margin: 0;}
+header nav ul {display:flex; gap:2rem; list-style:none; margin:0px; padding:0;}
+header nav a {text-decoration:none; color:#0F4129; font-weight:700; margin: 0; font-size: 1.5rem;}
 header nav a:hover {text-decoration:underline; text-decoration-color: #8D5235BF; text-decoration-thickness: 3px;}
 
 .carousel-container {
     border: 8px solid #7f0000a4;
     padding: 12px;
     margin: 40px auto;
-    max-width: 840px;
+    max-width: 1000px;
     background: #7F0000C7;
     border-radius: 30px;
     box-shadow: 0 14px 34px rgba(0,0,0,0.15);
