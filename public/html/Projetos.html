@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ananias&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Projetos - Rapecca</title>
+    <style>
+        body {
+            background-image: url('../img/ferramentasRed.png');
+            background-repeat: repeat-y;
+            background-position: right top;
+            background-size: auto 1150px;
+            background-color: #9AA36A;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-wrapper">
+            <img src="../img/logoRapecca.png" alt="Logo Rapecca">
+            <nav>
+                <ul>
+                    <li><a href="Rapecca.html">Rapecca</a></li>
+                    <li><a href="Projetos.html">Projetos</a></li>
+                    <li><a href="Null.html">Null</a></li>
+                    <li><a href="Sobre-nos.html">Sobre nós</a></li>
+                    <li><a href="Participe.html">Participe</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="events-column" id="lista-projetos">
+            <p style="text-align: center; padding: 20px;">Carregando projetos...</p>
+        </div>
+    </section>
+
+    <script>
+        async function carregarDadosDoPocket() {
+            const container = document.getElementById('lista-projetos');
+            const pbUrl = 'http://127.0.0.1:8090'; 
+            
+            try {
+                const response = await fetch(`${pbUrl}/api/collections/posts/records`);
+                const data = await response.json();
+
+                container.innerHTML = '';
+
+                if (data.items.length === 0) {
+                    container.innerHTML = '<p style="text-align: center;">Nenhum projeto cadastrado no momento.</p>';
+                    return;
+                }
+
+                data.items.forEach(post => {
+                    
+                    // CORRIGIDO: post.Capa com 'C' maiúsculo
+                    const fotoUrl = post.Capa 
+                        ? `${pbUrl}/api/files/${post.collectionId}/${post.id}/${post.Capa}`
+                        : '../img/logoRapecca.png';
+
+                    const article = document.createElement('article');
+                    article.className = 'event-row';
+
+                    // CORRIGIDO: post.Titulo e post.Texto com letras maiúsculas
+                    article.innerHTML = `
+                        <a href="projeto-detalhe.html?id=${post.id}">
+                            <img src="${fotoUrl}" alt="${post.Titulo}">
+                        </a>
+                        <div class="event-row-content">
+                            <h3 class="event-row-title">${post.Titulo}</h3>
+                            <div class="event-row-description">${post.Texto}</div>
+                        </div>
+                    `;
+
+                    container.appendChild(article);
+                });
+
+            } catch (error) {
+                console.error("Erro ao carregar PocketBase:", error);
+                container.innerHTML = '<p style="text-align: center;">Erro ao carregar os posts.</p>';
+            }
+        }
+
+        carregarDadosDoPocket();
+    </script>
+</body>
+</html>
