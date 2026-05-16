@@ -43,7 +43,6 @@
   </div>
 </section>
 
-<!-- arrumar isso aq pq pqp tá feio viu-->
 <div class="divisorRed">
          <img src="../img/vermelho.png" alt="Divisor vermelho">  
     </div>
@@ -53,6 +52,7 @@
         <div class="titulo">
             <h2>Outros eventos</h2>
         </div>
+        
         <div class="projects-grid">
             <div class="project-box">
                 <a href="project1.html">
@@ -62,55 +62,82 @@
             </div>
             <div class="project-box">
                 <a href="project2.html">
-                    <img src="../img/fazendinha.png"" alt="Projeto 2">
+                    <img src="../img/project2.jpg" alt="Projeto 2">
                     <p>Descrição breve do Projeto 2.</p>
                 </a>
             </div>
             <div class="project-box">
                 <a href="project3.html">
-                    <img src="../img/fazendinha.png" alt="Projeto 3">
+                    <img src="../img/project3.jpg" alt="Projeto 3">
                     <p>Descrição breve do Projeto 3.</p>
                 </a>
             </div>
         </div>
 
-        <div class="events-column">
-            <article class="event-row">
-                 <a href="project1.html">
-                <img src="../img/carrossel/carrossel1.jpg" alt="Feira Agroecológica">
-                </a>
-                <div class="event-row-content">
-                    <h3 class="event-row-title">Feira Agroecológica</h3>
-                    <p class="event-row-description">Venha conhecer produtores locais e alimentos sustentáveis neste evento especial.</p>
-                </div>
-            </article>
-            
-            
-            <article class="event-row">
-                <a href="project1.html">
-                <img src="../img/fazendinha.png" alt="Feira Agroecológica">
-                </a>
-                <div class="event-row-content">
-                    <h3 class="event-row-title">Feira Agroecológica</h3>
-                    <p class="event-row-description">Venha conhecer produtores locais e alimentos sustentáveis neste evento especial.</p>
-                </div>
-            </article>
+        <div class="events-column" id="ultimos-projetos">
+            <p style="text-align: center; padding: 20px;">Carregando os últimos destaques...</p>
         </div>
     </div>
 </section>
 
-
-<h1 id="ver-mais">Ver Mais</h1>
+<h1 id="ver-mais"><a href="Projetos.html" style="text-decoration: none; color: inherit;">Ver Mais</a></h1>
 
 </main>
-
-    
     
     <script src="../js/script.js"></script>
+
+    <script>
+        async function carregarUltimosProjetos() {
+            const container = document.getElementById('ultimos-projetos');
+            const pbUrl = 'http://127.0.0.1:8090'; 
+            
+            try {
+                // A URL com os filtros: ordenação decrescente e limite de 4 posts
+                const urlFinal = `${pbUrl}/api/collections/posts/records?sort=-created&perPage=4`;
+                const response = await fetch(urlFinal);
+                const data = await response.json();
+
+                container.innerHTML = '';
+
+                if (data.items.length === 0) {
+                    container.innerHTML = '<p style="text-align: center;">Nenhum projeto recente encontrado.</p>';
+                    return;
+                }
+
+                data.items.forEach(post => {
+                    const fotoUrl = post.Capa 
+                        ? `${pbUrl}/api/files/${post.collectionId}/${post.id}/${post.Capa}`
+                        : '../img/logoRapecca.png';
+
+                    const article = document.createElement('article');
+                    article.className = 'event-row';
+
+                    article.innerHTML = `
+                        <a href="projeto-detalhe.html?id=${post.id}">
+                            <img src="${fotoUrl}" alt="${post.Titulo}">
+                        </a>
+                        <div class="event-row-content">
+                            <h3 class="event-row-title">${post.Titulo}</h3>
+                            <div class="event-row-description">${post.Texto}</div>
+                        </div>
+                    `;
+
+                    container.appendChild(article);
+                });
+
+            } catch (error) {
+                console.error("Erro ao carregar PocketBase:", error);
+                container.innerHTML = '<p style="text-align: center;">Erro ao carregar destaques. Servidor offline?</p>';
+            }
+        }
+
+        carregarUltimosProjetos();
+    </script>
 
 <template id="evento-template">
   <div class="card-evento">
     <img src="" alt="Imagem do evento">
+
 
     <div class="card-evento-content">
       <h3 class="evento-titulo"></h3>
@@ -118,6 +145,7 @@
     </div>
   </div>
 </template>
+
 
 <footer class="site-footer">
     <div class="footer-content">
@@ -137,5 +165,3 @@
 </footer>
 </body>
 </html>
-
-

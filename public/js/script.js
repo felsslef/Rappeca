@@ -29,40 +29,6 @@ showSlide(currentSlide);
 const verMaisBtn = document.getElementById('ver-mais');
 const eventsColumn = document.querySelector('.events-column');
 
-verMaisBtn.addEventListener('click', () => {
-    // Create new event rows
-    const newEvent1 = document.createElement('article');
-    newEvent1.className = 'event-row';
-    newEvent1.innerHTML = `
-        <a href="project2.html">
-            <img src="../img/carrossel/carrossel2.jpg" alt="Oficina de Compostagem">
-        </a>
-        <div class="event-row-content">
-            <h3 class="event-row-title">Oficina de Compostagem</h3>
-            <p class="event-row-description">Aprenda práticas sustentáveis para o dia a dia neste workshop interativo.</p>
-        </div>
-    `;
-
-    const newEvent2 = document.createElement('article');
-    newEvent2.className = 'event-row';
-    newEvent2.innerHTML = `
-        <a href="project3.html">
-            <img src="../img/carrossel/carrossel3.jpg" alt="Mutirão de Limpeza">
-        </a>
-        <div class="event-row-content">
-            <h3 class="event-row-title">Mutirão de Limpeza</h3>
-            <p class="event-row-description">Participe de um mutirão para revitalizar espaços urbanos e promover a sustentabilidade.</p>
-        </div>
-    `;
-
-    // Append to events column
-    eventsColumn.appendChild(newEvent1);
-    eventsColumn.appendChild(newEvent2);
-
-    // Hide the button after loading
-    verMaisBtn.style.display = 'none';
-});
-
 // set footer year
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
