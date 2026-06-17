@@ -47,7 +47,7 @@ section, .participate-section {
     background-image: url('../img/folhas.png');
     background-repeat: repeat-y;
     background-position: right top;
-    background-size: auto 1300px;
+    background-size: auto clamp(0px, 100vh, 1300px);
 
     
 }
@@ -60,10 +60,11 @@ header h1 {
 header img {
     position: absolute;
     top: -20px;
-    height: 120px;
+    height: clamp(8px, 12vw, 120px);
     left: -150px;
     z-index: 1001;
     margin: 0;
+    width: auto;
 }
 header nav ul {
     display: flex;
@@ -301,6 +302,11 @@ img, iframe, video, svg {
 @media screen and (max-width: 900px) {
     body {
         background-attachment: scroll !important;
+        background-image: none !important;
+    }
+
+    .rapecca-page {
+        background-image: none;
     }
 
     header .nav-wrapper {
@@ -315,9 +321,9 @@ img, iframe, video, svg {
     header img {
         position: absolute;
         top: 12px;
-        left: 10px;
+        left: 600px;
         margin-bottom: 0;
-        height: 90px;
+        height: 60px;
     }
 
     .titulo {
@@ -402,6 +408,12 @@ img, iframe, video, svg {
     body {
         font-size: 1.05rem;
         padding: 100px 0 0 0;
+    }
+
+    header img {
+        position: absolute;
+        left: 2px;
+        height: 50px;
     }
 
     header nav ul {
