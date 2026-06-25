@@ -5,6 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ananias&family=Montserrat&display=swap">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .sobre-nos-wrapper {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .sobre-nos-secao {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f7f3e8;
+            border-left: 4px solid #6b8e23;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .sobre-nos-secao h2 {
+            font-family: 'Ananias', serif;
+            color: #3f4f2d;
+            margin-bottom: 0.2rem;
+            font-size: 1.6rem;
+        }
+
+        .sobre-nos-secao p {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            margin: 0;
+            text-align: justify;
+        }
+
+        .sobre-nos-imagem-placeholder {
+            width: 100%;
+            min-height: 180px;
+            background: linear-gradient(135deg, #e8e2cf, #d9e4c2);
+            border: 2px dashed #8fa66a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5f6f3f;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-item {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: inherit;
+            margin-top: 0.3rem;
+        }
+
+        .instagram-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    </style>
     <title>Sobre nós - Rapecca</title>
 </head>
 <body>
@@ -30,27 +116,68 @@
     </div>
 
 
-    <div class="sobre-nos-container">
-        <p class="sobre-nos-content">Lorem ipsum dolor sitr amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada.Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.</p>
-        <img class="sobre-nos-image" src="../img/logoRapecca.png" alt="Logo Rapecca">
+    <div class="sobre-nos-wrapper">
+        <section class="sobre-nos-secao">
+            <h2>Sobre nós</h2>
+            <div class="sobre-nos-imagem-placeholder">Imagem para este tópico</div>
+            <p>A Rede de Agroecologia, Pesca e Cultura de Caraguatatuba é um movimento social formado por moradores(as), agricultores(as), caiçaras, artistas e educadores(as) que atuam na cidade com o propósito de construir comunidades mais autônomas em relação à alimentação, à água, à energia e à renda. Para isso, entende-se como essencial a territorialização das comunidades e a organização de lutas em torno de bandeiras como a agricultura urbana, a pesca artesanal, a agroecologia, a cultura popular, a economia solidária, a defesa dos direitos do povo caiçara, a valorização dos povos e comunidades tradicionais, as soluções baseadas na natureza e a luta por terra e território.</p>
+        </section>
 
+        <section class="sobre-nos-secao">
+            <h2>Agricultura Urbana, Pesca Artesanal e Agroecologia</h2>
+            <div class="sobre-nos-imagem-placeholder">Imagem para este tópico</div>
+            <p>Caraguatatuba abriga a maior planície agricultável do Litoral Norte de São Paulo, mas esse potencial está enfraquecido pela especulação imobiliária e pela ausência de políticas públicas adequadas. Em um cenário de crise climática, produzir alimentos saudáveis perto das comunidades é uma estratégia de segurança alimentar e de resiliência urbana. Defendemos a agroecologia e a agricultura urbana por meio da criação de hortas comunitárias, sistemas agroflorestais e do fortalecimento das práticas produtivas que regeneram o solo e a floresta. Da mesma forma, a pesca e a maricultura artesanais são atividades ecológicas, realizadas por comunidades tradicionais, com grande potencial de geração de renda e de soberania alimentar.</p>
+        </section>
+
+        <section class="sobre-nos-secao">
+            <h2>A Cultura Popular</h2>
+            <div class="sobre-nos-imagem-placeholder">Imagem para este tópico</div>
+            <p>A cultura popular é uma das bases fundamentais da vida coletiva em Caraguatatuba. Seus saberes, cantos, danças, festas e tradições atravessaram tempos de colonização, escravidão, pobreza e exclusão, e continuam sendo fontes de resistência, memória e pertencimento. As manifestações populares são referências de identidade e de luta, e merecem ser valorizadas como patrimônio vivo das comunidades.</p>
+        </section>
+
+        <section class="sobre-nos-secao">
+            <h2>Economia Solidária</h2>
+            <div class="sobre-nos-imagem-placeholder">Imagem para este tópico</div>
+            <p>O mercado de trabalho do Litoral Norte, em grande parte, se organiza com base em empregos precários, terceirizados e sazonais, o que torna a vida econômica da população vulnerável. A economia solidária surge como alternativa concreta para construir outra lógica de produção e circulação de riquezas. Acreditamos em uma organização econômica baseada na autogestão, na cooperação, na comercialização justa e na distribuição equitativa dos frutos do trabalho, garantindo que a renda permaneça mais próxima das comunidades.</p>
+        </section>
+
+        <section class="sobre-nos-secao">
+            <h2>Soluções Baseadas na Natureza</h2>
+            <div class="sobre-nos-imagem-placeholder">Imagem para este tópico</div>
+            <p>O crescimento populacional e as grandes obras de infraestrutura pressionam cada vez mais os ecossistemas locais, agravando problemas como impermeabilização do solo, enchentes, perda de biodiversidade e degradação ambiental. Por isso, defendemos a adoção de soluções baseadas na natureza como caminho para enfrentar esses desafios. A restauração de rios e córregos, os jardins de chuva, as drenagens naturais, o manejo agroflorestal, a recuperação de restingas e a criação de bosques e quintais produtivos são estratégias essenciais para construir cidades mais resilientes e sustentáveis.</p>
+        </section>
+
+        <section class="sobre-nos-secao">
+            <h2>O protagonismo feminino</h2>
+            <div class="sobre-nos-imagem-placeholder">Imagem para este tópico</div>
+            <p>Entendemos que o processo de expropriação dos territórios, da perda dos comuns e da concentração de poder também reforçou uma divisão sexual do trabalho que sobrecarrega as mulheres com responsabilidades não remuneradas, enquanto as expõe à exploração e à opressão. Por isso, a retomada dos territórios e a construção de novas formas de vida coletiva precisam contar com o protagonismo feminino, promovendo liderança, autonomia e uma divisão mais equilibrada das tarefas entre os membros das comunidades.</p>
+        </section>
+
+        <section class="sobre-nos-secao">
+            <h2>A Luta por Terra e Território</h2>
+            <div class="sobre-nos-imagem-placeholder">Imagem para este tópico</div>
+            <p>Nenhuma das bandeiras anteriores faz sentido sem a garantia de terra e território. Sem acesso aos bens comuns da natureza, não há soberania alimentar, hídrica ou energética. Em Caraguatatuba, essa luta se conecta diretamente à defesa do povo caiçara, à reforma agrária popular, à moradia digna, ao direito à cidade, à destinação de áreas públicas para projetos comunitários e à articulação entre comunidades, coletivos e movimentos para construir autonomia e resistência.</p>
+        </section>
     </div>
 
-    <div class="sobre-nos-container">
-        <img class="sobre-nos-image" src="../img/fazendinha.png" alt="Logo Rapecca">
-        <p class="sobre-nos-content">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada. Curabitur dignissim velit vel magna tincidunt, a faucibus orci elementum. Suspendisse potenti. Donec et libero nec risus varius consequat.</p>
-    </div>
     <p class="inicio-link "><a href="Sobre-nos.html">Voltar ao início</a></p>
 
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-item">
                 <strong>Telefone</strong>
-                <p>+55 (XX) XXXX-XXXX</p>   
+                <p>+55 (XX) XXXX-XXXX</p>
             </div>
             <div class="footer-item">
                 <strong>Endereço</strong>
                 <p>Rua Exemplo, 123 - Cidade - Estado</p>
+            </div>
+            <div class="footer-item">
+                <strong>Instagram</strong>
+                <a class="instagram-link" href="https://www.instagram.com/rapecca.agroecologia" target="_blank" rel="noopener noreferrer">
+                    <img src="../img/Instagram_icon.png" alt="Instagram" class="instagram-icon">
+                    <span>Rapecca</span>
+                </a>
             </div>
             <div class="footer-item">
                 <strong>Email</strong>
