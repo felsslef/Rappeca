@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ananias&family=Montserrat&display=swap">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Rapecca</title>
+</head>
+<body class="rapecca-page">
+    <header>
+        <div class="nav-wrapper">
+             <img src="../img/logoRapecca.png" alt="Logo Rapecca">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Rapecca</a></li>
+                    <li><a href="Projetos.html">Projetos</a></li>
+                    <li><a href="CSA.html">CSA</a></li>
+                    <li><a href="Sobre-nos.html">Sobre nós</a></li>
+                    <li><a href="Participe.html">Participe</a></li>
+                    <li><a href="Livreto.html">Livreto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+     <div class="titulo">
+         <h1>Destaques</h1>   
+    </div>
+
+   <main>
+
+<section class="hero">
+  <div class="carousel-wrapper" data-carousel> 
+    <div class="carousel-container">
+        <div class="carousel" id="carrossel-destaques">
+            <p style="text-align: center; width: 100%; padding: 40px;">Carregando imagens em destaque...</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects-section">
+    <div class="container">
+        <div class="titulo">
+            <h2>Outros eventos</h2>
+        </div>
+        
+        <div class="projects-grid" id="projetos-favoritos">
+            <p style="text-align: center; width: 100%; padding: 20px;">Carregando os eventos favoritos...</p>
+        </div>
+
+        <div class="events-column" id="ultimos-projetos">
+            <p style="text-align: center; padding: 20px;">Carregando os últimos destaques...</p>
+        </div>
+    </div>
+</section>
+
+<h1 id="ver-mais"><a href="Projetos.html" style="text-decoration: none; color: inherit;">Ver Mais</a></h1>
+
+</main>
+    
+    <script src="../js/script.js"></script>
+
+    <script>
+        const pbUrl = 'http://127.0.0.1:8090'; 
+
+        // --- FUNÇÃO 1: CARREGA OS DESTAQUES NO CARROSSEL ---
+        async function carregarDestaques() {
+            const carouselContainer = document.getElementById('carrossel-destaques');
+            
+            try {
+                const urlFinal = `${pbUrl}/api/collections/destaques/records?sort=-created&perPage=5`;
+                const response = await fetch(urlFinal);
+                const data = await response.json();
+
+                if (!data.items || data.items.length === 0) {
+                    carouselContainer.innerHTML = '<p style="text-align: center; width: 100%; padding: 40px;">Nenhum destaque no momento.</p>';
+                    return;
+                }
+
+                let slidesHTML = '';
+
+                data.items.forEach((destaque, index) => {
+                    const fotoUrl = destaque.imagem 
+                        ? `${pbUrl}/api/files/${destaque.collectionId}/${destaque.id}/${destaque.imagem}`
+                        : '../img/logoRapecca.png';
+
+                    const activeClass = index === 0 ? 'active' : '';
+                    
+                    slidesHTML += `
+                        <div class="slide ${activeClass}">
+                            <img src="${fotoUrl}" alt="${destaque.Titulo}">
+                        </div>
+                    `;
+                });
+
+                // Injeta os botões de controle e a legenda inicial
+                slidesHTML += `
+                    <button class="prev">‹</button>
+                    <button class="next">›</button>
+                    <div class="carousel-caption">${data.items[0].Titulo || ''}</div>
+                `;
+
+                carouselContainer.innerHTML = slidesHTML;
+
+                // ATENÇÃO: Inicializa os cliques do carrossel imediatamente após ele ser criado na tela!
+                inicializarControlesDoCarrossel();
+
+            } catch (error) {
+                console.error("Erro ao carregar destaques:", error);
+                carouselContainer.innerHTML = '<p style="text-align: center; width: 100%; padding: 40px;">Erro ao carregar os destaques.</p>';
+            }
+        }
+
+        // --- FUNÇÃO AUXILIAR: GERENCIA O CLIQUE DE AVANÇAR/VOLTAR DO CARROSSEL ---
+        function inicializarControlesDoCarrossel() {
+            const slides = document.querySelectorAll('#carrossel-destaques .slide');
+            const prevBtn = document.querySelector('#carrossel-destaques .prev');
+            const nextBtn = document.querySelector('#carrossel-destaques .next');
+            const caption = document.querySelector('#carrossel-destaques .carousel-caption');
+            
+            if (slides.length === 0 || !prevBtn || !nextBtn) return;
+
+            let indexAtual = 0;
+
+            function moverParaSlide(novoIndex) {
+                slides[indexAtual].classList.remove('active');
+
+                if (novoIndex >= slides.length) {
+                    indexAtual = 0;
+                } else if (novoIndex < 0) {
+                    indexAtual = slides.length - 1;
+                } else {
+                    indexAtual = novoIndex;
+                }
+
+                slides[indexAtual].classList.add('active');
+
+                // Atualiza a legenda dinamicamente baseando-se no 'alt' da imagem atual
+                const imgAtual = slides[indexAtual].querySelector('img');
+                if (imgAtual && caption) {
+                    caption.textContent = imgAtual.alt;
+                }
+            }
+
+            nextBtn.addEventListener('click', () => moverParaSlide(indexAtual + 1));
+            prevBtn.addEventListener('click', () => moverParaSlide(indexAtual - 1));
+        }
+
+        // --- FUNÇÃO 2: CARREGA OS FAVORITOS NO GRID ---
+        async function carregarFavoritos() {
+            const containerFavoritos = document.getElementById('projetos-favoritos');
+            
+            try {
+                const urlFinal = `${pbUrl}/api/collections/posts/records?filter=(favorito=true)&sort=-created&perPage=3`;
+                const response = await fetch(urlFinal);
+                const data = await response.json();
+
+                containerFavoritos.innerHTML = ''; 
+
+                if (!data.items || data.items.length === 0) {
+                    containerFavoritos.innerHTML = '<p style="text-align: center; width: 100%;">Nenhum evento favoritado no momento.</p>';
+                    return;
+                }
+
+                data.items.forEach(post => {
+                    const fotoUrl = post.Capa 
+                        ? `${pbUrl}/api/files/${post.collectionId}/${post.id}/${post.Capa}`
+                        : '../img/logoRapecca.png';
+
+                    const projectBox = document.createElement('div');
+                    projectBox.className = 'project-box';
+
+                    projectBox.innerHTML = `
+                        <a href="projeto-detalhe.html?id=${post.id}">
+                            <img src="${fotoUrl}" alt="${post.Titulo}" class="book-image">
+                            <p>${post.Titulo}</p>
+                        </a>
+                    `;
+
+                    containerFavoritos.appendChild(projectBox);
+                });
+
+            } catch (error) {
+                console.error("Erro ao carregar favoritos:", error);
+                containerFavoritos.innerHTML = '<p style="text-align: center; width: 100%;">Erro ao carregar os eventos.</p>';
+            }
+        }
+
+        // --- FUNÇÃO 3: CARREGA OS ÚLTIMOS POSTS EM LISTA ---
+        async function carregarUltimosProjetos() {
+            const container = document.getElementById('ultimos-projetos');
+            
+            try {
+                const urlFinal = `${pbUrl}/api/collections/posts/records?sort=-created&perPage=4`;
+                const response = await fetch(urlFinal);
+                const data = await response.json();
+
+                container.innerHTML = '';
+
+                if (!data.items || data.items.length === 0) {
+                    container.innerHTML = '<p style="text-align: center;">Nenhum projeto recente encontrado.</p>';
+                    return;
+                }
+
+                data.items.forEach(post => {
+                    const fotoUrl = post.Capa 
+                        ? `${pbUrl}/api/files/${post.collectionId}/${post.id}/${post.Capa}`
+                        : '../img/logoRapecca.png';
+
+                    const article = document.createElement('article');
+                    article.className = 'event-row';
+
+                    article.innerHTML = `
+                        <a href="projeto-detalhe.html?id=${post.id}">
+                            <img src="${fotoUrl}" alt="${post.Titulo}">
+                        </a>
+                        <div class="event-row-content">
+                            <h3 class="event-row-title">${post.Titulo}</h3>
+                            <div class="event-row-description">${post.Texto}</div>
+                        </div>
+                    `;
+
+                    container.appendChild(article);
+                });
+
+            } catch (error) {
+                console.error("Erro ao carregar PocketBase:", error);
+                container.innerHTML = '<p style="text-align: center;">Erro ao carregar destaques. Servidor offline?</p>';
+            }
+        }
+
+        // Executa as três buscas simultaneamente
+        carregarDestaques();
+        carregarFavoritos();
+        carregarUltimosProjetos();
+    </script>
+
+<template id="evento-template">
+  <div class="card-evento">
+    <img src="" alt="Imagem do evento">
+    <div class="card-evento-content">
+      <h3 class="evento-titulo"></h3>
+      <p class="evento-descricao"></p>
+    </div>
+  </div>
+</template>
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-item">
+            <strong>Telefone</strong>
+            <p>+55 (XX) XXXX-XXXX</p>   
+        </div>
+        <div class="footer-item">
+            <strong>Endereço</strong>
+            <p>Rua Exemplo, 123 - Cidade - Estado</p>
+        </div>
+        <div class="footer-item">
+            <strong>Email</strong>
+            <p>contato@rappecca.com.br</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
