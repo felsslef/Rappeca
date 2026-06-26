@@ -15,9 +15,9 @@
         .sobre-nos-secao {
             margin-bottom: 2rem;
             padding: 1.5rem;
-            background: #f7f3e8;
+            background: #f8f2e2;
             border-left: 4px solid #6b8e23;
-            border-radius: 8px;
+            border-radius: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
@@ -54,6 +54,24 @@
             font-size: 1rem;
             text-align: center;
             padding: 1rem;
+        }
+
+        .sobre-nos-imagem-cultura {
+            width: 50%;
+            min-height: auto;
+            align-self: center;
+            object-fit: cover;
+        }
+
+        .sobre-nos-linha-cultura {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .sobre-nos-texto-cultura {
+            flex: 1;
         }
 
         .footer-content {
@@ -131,8 +149,10 @@
 
         <section class="sobre-nos-secao">
             <h2>A Cultura Popular</h2>
-            <div class="sobre-nos-imagem-placeholder">Imagem para este tópico</div>
-            <p>A cultura popular é uma das bases fundamentais da vida coletiva em Caraguatatuba. Seus saberes, cantos, danças, festas e tradições atravessaram tempos de colonização, escravidão, pobreza e exclusão, e continuam sendo fontes de resistência, memória e pertencimento. As manifestações populares são referências de identidade e de luta, e merecem ser valorizadas como patrimônio vivo das comunidades.</p>
+            <div class="sobre-nos-linha-cultura">
+                <img src="./img/Sobre%20nos/culturaPopular.jpeg" alt="Cultura Popular" class="sobre-nos-imagem-placeholder sobre-nos-imagem-cultura">
+                <p class="sobre-nos-texto-cultura">A cultura popular é uma das bases fundamentais da vida coletiva em Caraguatatuba. Seus saberes, cantos, danças, festas e tradições atravessaram tempos de colonização, escravidão, pobreza e exclusão, e continuam sendo fontes de resistência, memória e pertencimento. As manifestações populares são referências de identidade e de luta, e merecem ser valorizadas como patrimônio vivo das comunidades.</p>
+            </div>
         </section>
 
         <section class="sobre-nos-secao">
@@ -175,7 +195,7 @@
             <div class="footer-item">
                 <strong>Instagram</strong>
                 <a class="instagram-link" href="https://www.instagram.com/rapecca.agroecologia" target="_blank" rel="noopener noreferrer">
-                    <img src="../img/Instagram_icon.png" alt="Instagram" class="instagram-icon">
+                    <img src="./img/Instagram_icon.png" alt="Instagram" class="instagram-icon">
                     <span>Rapecca</span>
                 </a>
             </div>
