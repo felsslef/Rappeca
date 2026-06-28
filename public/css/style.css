@@ -245,6 +245,7 @@ img, iframe, video, svg {
 
 .event-row-description {
     display: -webkit-box;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -851,6 +852,12 @@ input[type=text], input[type=password], input[type=tel], input[type=email], sele
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.book-image-link {
+    display: block;
+    width: 100%;
+    max-width: 350px;
 }
 
 .book-image {
