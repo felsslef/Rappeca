@@ -409,6 +409,7 @@ img, iframe, video, svg {
     .form-embed-wrap {
         min-width: 0;
         max-width: 100%;
+        width: 100%;
     }
 
     .form-embed-wrap {
@@ -462,6 +463,8 @@ img, iframe, video, svg {
 
     .participate-section {
         margin: 24px 0 12px;
+        width: 100%;
+        overflow-x: hidden;
     }
 
     .form-participar {
@@ -469,11 +472,20 @@ img, iframe, video, svg {
         max-width: 100%;
         padding: 16px;
         gap: 16px;
+        min-width: 0;
     }
 
     .participate-card {
+        width: 100%;
+        max-width: 100%;
         padding: 20px 16px;
         border-radius: 18px;
+    }
+
+    .book-section {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px 14px;
     }
 
     .participate-hero {
@@ -507,12 +519,16 @@ img, iframe, video, svg {
         display: block;
         width: 100%;
         min-width: 0;
-        height: 1500px;
+        max-width: 100%;
+        height: 1700px;
     }
 
     .form-embed-wrap {
         padding: 8px;
         border-radius: 8px;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
     }
 }
 
@@ -655,9 +671,9 @@ img, iframe, video, svg {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    width: 90%;
-    max-width: 980px;
-    min-width: 320px;
+    width: 100%;
+    max-width: 1300px;
+    min-width: 0;
     height: auto;
 }
 
@@ -754,13 +770,14 @@ input[type=text], input[type=password], input[type=tel], input[type=email], sele
 
 /* Embedded Google Form wrapper */
 .form-embed-wrap {
-    max-width: 760px; /* desktop max width */
+    max-width: 100%; /* desktop max width */
     width: 100%;
     margin: 0 auto;
     padding: 12px;
     box-sizing: border-box;
     background: linear-gradient(180deg, rgba(143,162,82,0.03), rgba(255,255,255,0.02));
     border-radius: 10px;
+    overflow-x: hidden;
 }
 
 .form-embed {
