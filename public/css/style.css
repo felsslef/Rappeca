@@ -27,7 +27,7 @@ body {
     font-family: 'Ananias', Arial, sans-serif;
     font-size: 1.3rem;
     margin: 0;
-    padding: 120px 0 0 0;
+    padding: 50px 0 0 0;
     background-color: #9AA36A;
     min-height: 100vh;
     display: flex;
@@ -99,7 +99,7 @@ img, iframe, video, svg {
 
 .titulo {
     text-align: center;
-    margin: 70px auto 10px auto;
+    margin: 30px auto 10px auto;
     max-width: 1100px;
     font-size: 2.2rem;
     color: #0F4129;
@@ -109,7 +109,7 @@ img, iframe, video, svg {
 
 .divisorRed img {
     display: block;
-    margin: 40px auto;
+    margin: 24px auto;
     height:auto;
     width: 60%;
 
@@ -128,7 +128,7 @@ img, iframe, video, svg {
     box-shadow: 0 14px 34px rgba(0,0,0,0.15);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%;
+    margin-top: 18px;
 }
 
 .carousel {
@@ -210,7 +210,7 @@ img, iframe, video, svg {
     flex-direction: row;
     justify-content: space-around;
     gap: 10px;
-    margin: 100px auto;
+    margin: 52px auto;
     max-width: 1100px;
     padding: 0 10px;
 }
@@ -829,6 +829,90 @@ input[type=text], input[type=password], input[type=tel], input[type=email], sele
     background: linear-gradient(135deg, rgba(223, 238, 147, 0.55), rgba(255, 255, 255, 0.8));
 }
 
+.book-expandable {
+    margin-top: 18px;
+}
+
+.book-expandable summary {
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0F4129;
+    list-style: none;
+}
+
+.book-expandable summary::-webkit-details-marker {
+    display: none;
+}
+
+.book-expandable summary::after {
+    content: ' +';
+    color: #7A0708;
+    font-weight: 700;
+}
+
+.book-expandable[open] summary::after {
+    content: ' -';
+}
+
+.book-expandable__content {
+    margin-top: 12px;
+}
+
+.book-order-guide {
+    margin-top: 18px;
+}
+
+.book-order-guide summary {
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0F4129;
+    list-style: none;
+}
+
+.book-order-guide summary::-webkit-details-marker {
+    display: none;
+}
+
+.book-order-guide summary::after {
+    content: ' +';
+    color: #7A0708;
+    font-weight: 700;
+}
+
+.book-order-guide[open] summary::after {
+    content: ' -';
+}
+
+.book-order-guide__intro {
+    margin-top: 12px;
+}
+
+.book-order-guide__steps {
+    margin: 12px 0 0;
+    padding-left: 22px;
+    display: grid;
+    gap: 10px;
+}
+
+.book-order-guide__steps li {
+    line-height: 1.7;
+}
+
+.book-order-guide__note {
+    margin-top: 12px;
+}
+
+.book-order-guide__closing {
+    margin: 12px 0 0;
+    font-weight: 700;
+    color: #0F4129;
+    line-height: 1.6;
+}
+
 .book-meta {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -850,6 +934,7 @@ input[type=text], input[type=password], input[type=tel], input[type=email], sele
 .book-image-wrapper {
     flex-shrink: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -858,6 +943,21 @@ input[type=text], input[type=password], input[type=tel], input[type=email], sele
     display: block;
     width: 100%;
     max-width: 350px;
+}
+
+.book-preview-note {
+    margin: 12px 0 0;
+    max-width: 350px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: center;
+    color: #4d4d4d;
+}
+
+.book-preview-note a {
+    color: #7A0708;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 .book-image {
