@@ -403,6 +403,17 @@ img, iframe, video, svg {
         width: 100%;
         padding: 0 16px;
     }
+
+    .form-participar,
+    .participate-card,
+    .form-embed-wrap {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .form-embed-wrap {
+        padding: 10px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -449,14 +460,59 @@ img, iframe, video, svg {
         font-size: 1rem;
     }
 
+    .participate-section {
+        margin: 24px 0 12px;
+    }
+
     .form-participar {
         width: 100%;
         max-width: 100%;
         padding: 16px;
+        gap: 16px;
+    }
+
+    .participate-card {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    .participate-hero {
+        gap: 6px;
+    }
+
+    .book-title {
+        font-size: 1.6rem;
+    }
+
+    .book-tagline {
+        font-size: 1rem;
+    }
+
+    .book-section {
+        padding: 16px 14px;
+    }
+
+    .book-description {
+        font-size: 0.98rem;
+        line-height: 1.7;
+        text-align: left;
+    }
+
+    .cadastre-se {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
     }
 
     .form-embed {
-        height: 1200px;
+        display: block;
+        width: 100%;
+        min-width: 0;
+        height: 1500px;
+    }
+
+    .form-embed-wrap {
+        padding: 8px;
+        border-radius: 8px;
     }
 }
 
@@ -591,20 +647,16 @@ img, iframe, video, svg {
 
 /* Formulario do Participe */
 
-.participate-section {
-    margin: 40px 0;
-}
-
 .form-participar{
-    margin: 0 auto;
+    margin: 28px auto 20px;
     gap: 20px;
     padding: 0;
     border-radius: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    width: calc(100% - 40px);
-    max-width: 1300px;
+    width: 90%;
+    max-width: 980px;
     min-width: 320px;
     height: auto;
 }
@@ -614,7 +666,7 @@ img, iframe, video, svg {
     border: 1px solid rgba(122, 7, 8, 0.12);
     border-radius: 24px;
     box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
-    padding: 40px 32px;
+    padding: 32px 28px;
 }
 
 .participate-hero {
@@ -702,7 +754,7 @@ input[type=text], input[type=password], input[type=tel], input[type=email], sele
 
 /* Embedded Google Form wrapper */
 .form-embed-wrap {
-    max-width: 1000px; /* desktop max width */
+    max-width: 760px; /* desktop max width */
     width: 100%;
     margin: 0 auto;
     padding: 12px;
