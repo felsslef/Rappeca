@@ -543,8 +543,8 @@ img, iframe, video, svg {
 .footer-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
-    justify-content: space-between;
+    gap: 60px;
+    justify-content: center;
     align-items: flex-start;
     max-width: 1120px;
     margin: 0 auto;
@@ -552,7 +552,7 @@ img, iframe, video, svg {
 
 .footer-item {
     min-width: 180px;
-    flex: 1;
+    flex: 0 1 220px;
     max-width: 260px;
 }
 
