@@ -887,36 +887,6 @@ input[type=text], input[type=password], input[type=tel], input[type=email], sele
     line-height: 1.8;
     color: #000000;
     text-align: justify;
-
-    .sobre-nos-linha-cultura,
-    .sobre-nos-linha-agricultura,
-    .sobre-nos-linha-economia,
-    .sobre-nos-linha-natureza,
-    .sobre-nos-linha-feminino {
-        flex-direction: column !important;
-        align-items: stretch;
-        gap: 12px;
-    }
-
-    .sobre-nos-texto-cultura,
-    .sobre-nos-texto-agricultura,
-    .sobre-nos-texto-economia,
-    .sobre-nos-texto-natureza,
-    .sobre-nos-texto-feminino {
-        width: 100%;
-    }
-
-    .sobre-nos-imagem-cultura,
-    .sobre-nos-imagem-agricultura,
-    .sobre-nos-imagem-economia,
-    .sobre-nos-imagem-natureza,
-    .sobre-nos-imagem-feminino {
-        width: 100%;
-        max-width: 100%;
-        min-height: 220px;
-        padding: 0.75rem;
-        align-self: stretch;
-    }
     background: transparent;
     padding: 0;
     margin: 0;
@@ -1127,6 +1097,52 @@ input[type=text], input[type=password], input[type=tel], input[type=email], sele
         text-align: left;
     }
 
+
+    .sobre-nos-wrapper {
+        max-width: 100%;
+        padding: 1rem 0.75rem 2rem;
+    }
+
+    .sobre-nos-secao {
+        padding: 1rem;
+        gap: 0.9rem;
+    }
+
+    .sobre-nos-linha-cultura,
+    .sobre-nos-linha-agricultura,
+    .sobre-nos-linha-economia,
+    .sobre-nos-linha-natureza,
+    .sobre-nos-linha-feminino,
+    .sobre-nos-linha-terra {
+        flex-direction: column !important;
+        align-items: stretch;
+        gap: 0.9rem;
+    }
+
+    .sobre-nos-texto-cultura,
+    .sobre-nos-texto-agricultura,
+    .sobre-nos-texto-economia,
+    .sobre-nos-texto-natureza,
+    .sobre-nos-texto-feminino,
+    .sobre-nos-texto-terra {
+        width: 100%;
+        flex: none;
+    }
+
+    .sobre-nos-imagem-placeholder,
+    .sobre-nos-imagem-cultura,
+    .sobre-nos-imagem-agricultura,
+    .sobre-nos-imagem-economia,
+    .sobre-nos-imagem-natureza,
+    .sobre-nos-imagem-feminino,
+    .sobre-nos-imagem-terra {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 220px;
+        padding: 0.75rem !important;
+        align-self: stretch;
+        box-sizing: border-box;
+    }
     .book-meta {
         grid-template-columns: 1fr;
     }
