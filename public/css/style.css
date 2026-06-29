@@ -61,7 +61,7 @@ header img {
     position: absolute;
     top: -20px;
     height: clamp(8px, 12vw, 120px);
-    left: -150px;
+    left: -14.5vw;
     z-index: 1001;
     margin: 0;
     width: auto;
@@ -309,42 +309,22 @@ img, iframe, video, svg {
     .rapecca-page {
         background-image: none;
     }
-header {
-    left: 3%;
-    width: 94%;
-    border-radius: 24px;
-    padding: 6px 2%;
-}
 
-header .nav-wrapper {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 10px;
-    max-width: 100%;
-}
+    header .nav-wrapper {
+        padding: 0 18px 10px;
+    }
 
-header img {
-    position: static;
-    top: auto;
-    left: auto;
-    height: 44px;
-    margin: 0;
-    flex-shrink: 0;
-}
+    header nav ul {
+        justify-content: center;
+        gap: 0.8rem;
+    }
 
-header nav ul {
-    justify-content: flex-end;
-    gap: 0.7rem;
-    flex-wrap: wrap;
-}
 
-.titulo {
-    margin: 130px auto 20px auto;
-    font-size: 2rem;
-    padding: 0 20px;
-}
+    .titulo {
+        margin: 120px auto 20px auto;
+        font-size: 2rem;
+        padding: 0 20px;
+    }
 
     .carousel-container {
         margin-top: 8rem;
@@ -436,22 +416,18 @@ header nav ul {
         padding: 100px 0 0 0;
     }
 
-   header img {
-    height: 36px;
-}
+    header nav ul {
+        gap: 0.6rem;
+    }
 
-header nav ul {
-    gap: 0.45rem;
-}
+    header nav a {
+        font-size: 1rem;
+    }
 
-header nav a {
-    font-size: 0.85rem;
-}
-
-.titulo {
-    font-size: 1.75rem;
-    margin: 120px auto 18px auto;
-}
+    .titulo {
+        font-size: 1.75rem;
+        margin: 110px auto 18px auto;
+    }
 
     .carousel {
         height: 320px;
