@@ -59,7 +59,7 @@ header h1 {
 }
 header img {
     position: absolute;
-    top: -20px;
+    top: -1vw;
     height: clamp(8px, 12vw, 120px);
     left: -14.5vw;
     z-index: 1001;
