@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>CSA - Rapecca</title>
 </head>
-<body>
+<body class="rapecca-page">
     <header>
         <div class="nav-wrapper">
              <img src="./img/logoRapecca.png" alt="Logo Rapecca">
@@ -24,39 +24,97 @@
         </div>
     </header>
 
-    <div class = titulo>
-    <h1>Quer ser um voluntário?</h1>
+    <div class="titulo">
+        <h1>Quer fazer parte da nossa CSA?</h1>
     </div>
 
-    <section class="participate-section">
-        <div class="sobre-nos-container">
-            <div class="sobre-nos-content">
-                <p>Conteúdo principal da página CSA.</p>
+    <main>
+        <section class="participate-section">
+            <div class="form-participar participate-card">
+                <div class="participate-hero">
+                    <p class="book-eyebrow">CSA</p>
+                    <h2 class="book-title">Comunidade que Sustenta a Agricultura</h2>
+                    <p class="book-tagline">Deixam de existir "consumidores" e nascem os co-agricultores.</p>
+                </div>
 
-                <p>Texto falando sobre como é ser um voluntário ou algo do tipor Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                <section class="book-section">
+                    <h3>🌱 O que é e como funciona uma CSA?</h3>
+                    <p class="book-description">
+                        A CSA (Comunidade que Sustenta a Agricultura) é um modelo que transforma completamente a nossa relação com o alimento e com quem o cultiva. Aqui, nós deixamos de lado a lógica tradicional de mercado (do "comprador" x "vendedor") para construir uma relação de verdadeira parceria. Deixam de existir "consumidores" e nascem os co-agricultores.
+                    </p>
+                </section>
+
+                <details class="book-section book-expandable">
+                    <summary>Como isso funciona na prática?</summary>
+                    <ul class="book-list book-expandable__content">
+                        <li><strong>Financiamento coletivo da produção:</strong> os co-agricultores assumem o compromisso de cobrir o custo fixo do cultivo por meio de uma contribuição mensal. Isso garante uma renda justa, estável e previsível para as famílias agricultoras, protegendo-as das oscilações de preço do mercado tradicional.</li>
+                        <li><strong>Partilha dos riscos e da abundância:</strong> em vez de comprar "quilos de comida", o co-agricultor apoia a horta como um todo. Se o clima ajudar e a época for de fartura, as cestas vêm mais cheias e diversas. Se houver alguma frustração de safra (como uma chuva forte ou praga pontual), o risco é compartilhado entre todos, garantindo que o agricultor não fique no prejuízo sozinho.</li>
+                        <li><strong>Alimento de verdade:</strong> em contrapartida ao apoio à produção, os co-agricultores recebem periodicamente uma cesta recheada de alimentos frescos, locais, da época e cultivados sem nenhum veneno, através da agroecologia.</li>
+                    </ul>
+                </details>
+
+                <section class="book-section book-section--highlight">
+                    <h3>📦 Nossas Cestas e Valores</h3>
+                    <div class="book-meta">
+                        <div class="book-meta-item">
+                            <strong>Cesta M</strong>
+                            <span>(10 itens entregues quinzenalmente) — R$ 120,00 no início do mês</span>
+                        </div>
+                        <div class="book-meta-item">
+                            <strong>Cesta G</strong>
+                            <span>(16 itens entregues quinzenalmente) — R$ 192,00 no início do mês</span>
+                        </div>
+                    </div>
+                </section>
+
+                <details class="book-section book-expandable">
+                    <summary>🚚 Logística e Distribuição</summary>
+                    <p class="book-description book-expandable__content">
+                        Nossos pontos de retirada inicialmente previstos são:
+                    </p>
+                    <ul class="book-list">
+                        <li>São Sebastião: Centro.</li>
+                        <li>Caraguatatuba: Alto do Jetuba.</li>
+                    </ul>
+                    <p class="book-description" style="margin-top: 12px;">
+                        <strong>🤝 Importante:</strong> os próprios co-agricultores organizam o sistema de retirada e distribuição dos alimentos, fortalecendo os laços de cooperação e apoio mútuo na nossa comunidade.
+                    </p>
+                </details>
+
+                <details class="book-section book-expandable">
+                    <summary>👩‍🌾 Quem cultiva o seu alimento?</summary>
+                    <p class="book-description book-expandable__content">
+                        As cestas são compostas por alimentos produzidos de forma limpa e justa por:
+                    </p>
+                    <ul class="book-list">
+                        <li>Sítio Alto da Serra (Violeta e Juliano em Natividade da Serra)</li>
+                        <li>Sítio do Seu Dito (Pouso Alto)</li>
+                        <li>Quintais Produtivos da Rapecca (Caraguatatuba)</li>
+                        <li>Horta Comunitária do Alto do Jetuba (Caraguatatuba)</li>
+                    </ul>
+                </details>
+
+                <section class="book-section book-section--highlight">
+                    <p class="cadastre-se">Quer fazer parte dessa aliança entre o campo e a cidade no nosso território? Preencha os dados abaixo para nos ajudar a desenhar e planejar o funcionamento da nossa CSA!</p>
+
+                    <div class="form-embed-wrap">
+                        <!-- TODO: substituir pelo link do formulário do Google específico da CSA -->
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSfnt2kSSvPP_bx2K5jxxd2Ma-sIvwQ0w1g1goUT7Um1_tw-Yg/viewform?embedded=true"
+                            class="form-embed"
+                            title="Formulário da CSA"
+                            loading="lazy"
+                            frameborder="0"
+                            marginheight="0"
+                            marginwidth="0"
+                        >Carregando…</iframe>
+                    </div>
+                </section>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <div class = form-participar>
-
-        <p class = cadastre-se>Cadastre-se para participar dos nossos projetos!</p>
-
-        <div class="form-embed-wrap">
-            <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSfnt2kSSvPP_bx2K5jxxd2Ma-sIvwQ0w1g1goUT7Um1_tw-Yg/viewform?embedded=true"
-                class="form-embed"
-                title="Formulário de participação"
-                loading="lazy"
-                frameborder="0"
-                marginheight="0"
-                marginwidth="0"
-            >Carregando…</iframe>
-        </div>
-
-    </div>
-
-    <p class="inicio-link "><a href="Participe.html">Voltar ao início</a></p>
+        <p class="inicio-link"><a href="index.html">Voltar ao início</a></p>
+    </main>
 
     <footer class="site-footer">
         <div class="footer-content">
