@@ -61,7 +61,7 @@ header img {
     position: absolute;
     top: -1.3vw;
     height: clamp(8px, 12vw, 120px);
-    left: -11.2vw;
+    left: -9.5vw;
     z-index: 1001;
     margin: 0;
     width: auto;
