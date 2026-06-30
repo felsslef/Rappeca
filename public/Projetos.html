@@ -52,7 +52,7 @@
             const pbUrl = 'https://rapecca.uber.space'; 
             
             try {
-                const response = await fetch(`${pbUrl}/api/collections/posts/records`);
+                const response = await fetch(`${pbUrl}/api/collections/posts/records?sort=-created`);
                 const data = await response.json();
 
                 container.innerHTML = '';

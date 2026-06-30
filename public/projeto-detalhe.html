@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ananias&family=Montserrat&display=swap">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Detalhes do Projeto - Rapecca</title>
+    <title>Projetos - Rapecca</title>
     <style>
         body {
             background-image: url('../img/ferramentasRed.png');
@@ -36,9 +36,15 @@
 
     <main>
         <section>
+            <p class="inicio-link" style="margin-top: 100px;">
+                <a href="Projetos.html">← Ver todos os projetos</a>
+            </p>
             <div class="post-container" id="post-container">
-                <p style="text-align: center;">Carregando detalhes do projeto...</p>
+                <p style="text-align: center; padding: 40px 0;">Carregando...</p>
             </div>
+            <p class="inicio-link">
+                <a href="Projetos.html">← Ver todos os projetos</a>
+            </p>
         </section>
     </main>
 
@@ -46,7 +52,7 @@
         async function carregarDetalhes() {
             const container = document.getElementById('post-container');
             const pbUrl = 'https://rapecca.uber.space';
-            
+
             const params = new URLSearchParams(window.location.search);
             const postId = params.get('id');
 
@@ -57,21 +63,36 @@
 
             try {
                 const response = await fetch(`${pbUrl}/api/collections/posts/records/${postId}`);
-                
-                if (!response.ok) {
-                    throw new Error('Projeto não encontrado');
-                }
+
+                if (!response.ok) throw new Error('Projeto não encontrado');
 
                 const post = await response.json();
 
-                const fotoUrl = post.Capa 
+                // Atualiza o título da aba com o nome do post
+                document.title = `${post.Titulo} — Rapecca`;
+
+                // Formata a data de publicação em português
+                const dataFormatada = new Date(post.created).toLocaleDateString('pt-BR', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+
+                const fotoUrl = post.Capa
                     ? `${pbUrl}/api/files/${post.collectionId}/${post.id}/${post.Capa}`
-                    : '../img/logoRapecca.png';
+                    : null;
+
+                const imagemHTML = fotoUrl
+                    ? `<img src="${fotoUrl}" alt="${post.Titulo}" class="post-image">`
+                    : '';
 
                 container.innerHTML = `
-                    <a href="Projetos.html" class="btn-voltar">← Voltar para Projetos</a>
-                    <h1 class="post-title">${post.Titulo}</h1>
-                    <img src="${fotoUrl}" alt="${post.Titulo}" class="post-image">
+                   <div class="post-header">
+                        <p class="book-eyebrow">Rapecca</p>
+                        <h1 class="post-title">${post.Titulo}</h1>
+                        <p class="post-date">${dataFormatada}</p>
+                    </div>
+                    ${imagemHTML}
                     <div class="post-content">
                         ${post.Texto}
                     </div>
@@ -80,11 +101,9 @@
             } catch (error) {
                 console.error("Erro:", error);
                 container.innerHTML = `
-                    <div style="text-align: center;">
-                        <h2>Ops! Projeto não encontrado.</h2>
-                        <p>O projeto que você tentou acessar pode ter sido removido ou o servidor está offline.</p>
-                        <br>
-                        <a href="Projetos.html" class="btn-voltar">Voltar para a lista</a>
+                    <div style="text-align: center; padding: 40px 0;">
+                        <h2 style="color: #0F4129;">Ops! Projeto não encontrado.</h2>
+                        <p>O projeto pode ter sido removido ou o servidor está offline.</p>
                     </div>
                 `;
             }
