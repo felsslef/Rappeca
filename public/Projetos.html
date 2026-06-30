@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ananias&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ananias&family=Montserrat&display=swap">
     <link rel="stylesheet" href="./css/style.css">
     <title>Projetos - Rapecca</title>
     <style>
@@ -34,11 +34,17 @@
         </div>
     </header>
 
-    <section>
-        <div class="events-column" id="lista-projetos">
-            <p style="text-align: center; padding: 20px;">Carregando projetos....</p>
-        </div>
-    </section>
+    <div class="titulo">
+        <h1>Projetos</h1>
+    </div>
+
+    <main>
+        <section>
+            <div class="events-column" id="lista-projetos" style="margin-top: 20px;">
+                <p style="text-align: center; padding: 20px;">Carregando projetos....</p>
+            </div>
+        </section>
+    </main>
 
     <script>
         async function carregarDadosDoPocket() {
@@ -57,8 +63,6 @@
                 }
 
                 data.items.forEach(post => {
-                    
-                    // CORRIGIDO: post.Capa com 'C' maiúsculo
                     const fotoUrl = post.Capa 
                         ? `${pbUrl}/api/files/${post.collectionId}/${post.id}/${post.Capa}`
                         : '../img/logoRapecca.png';
@@ -66,7 +70,6 @@
                     const article = document.createElement('article');
                     article.className = 'event-row';
 
-                    // CORRIGIDO: post.Titulo e post.Texto com letras maiúsculas
                     article.innerHTML = `
                         <a href="projeto-detalhe.html?id=${post.id}">
                             <img src="${fotoUrl}" alt="${post.Titulo}">
@@ -91,14 +94,6 @@
 
     <footer class="site-footer">
         <div class="footer-content">
-            <div class="footer-item">
-                <strong>Telefone</strong>
-                <p>+55 (XX) XXXX-XXXX</p>
-            </div>
-            <div class="footer-item">
-                <strong>Endereço</strong>
-                <p>Rua Exemplo, 123 - Cidade - Estado</p>
-            </div>
             <div class="footer-item">
                 <strong>Instagram</strong>
                 <a class="instagram-link" href="https://www.instagram.com/rapecca.agroecologia" target="_blank" rel="noopener noreferrer">

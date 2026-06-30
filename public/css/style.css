@@ -59,9 +59,9 @@ header h1 {
 }
 header img {
     position: absolute;
-    top: -1.3vw;
+    top: -20px;
     height: clamp(8px, 12vw, 120px);
-    left: -9.5vw;
+    left: -14.5vw;
     z-index: 1001;
     margin: 0;
     width: auto;
@@ -319,7 +319,6 @@ img, iframe, video, svg {
         gap: 0.8rem;
     }
 
-
     .titulo {
         margin: 120px auto 20px auto;
         font-size: 2rem;
@@ -530,8 +529,8 @@ img, iframe, video, svg {
 .footer-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
-    justify-content: space-between;
+    gap: 60px;
+    justify-content: center;
     align-items: flex-start;
     max-width: 1120px;
     margin: 0 auto;
@@ -539,7 +538,7 @@ img, iframe, video, svg {
 
 .footer-item {
     min-width: 180px;
-    flex: 1;
+    flex: 0 1 220px;
     max-width: 260px;
 }
 
@@ -1132,5 +1131,84 @@ input[type=text], input[type=password], input[type=tel], input[type=email], sele
     }
     .book-meta {
         grid-template-columns: 1fr;
+    }
+}
+/* ===== Página de Detalhe do Projeto ===== */
+.post-container {
+    max-width: 820px;
+    margin: 60px auto 40px;
+    padding: 32px 28px;
+    background: linear-gradient(180deg, #fffdf6 0%, #f7f1df 100%);
+    border: 1px solid rgba(122, 7, 8, 0.12);
+    border-radius: 24px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+    font-family: 'Ananias', Arial, sans-serif;
+}
+
+.post-title {
+    font-size: 2.2rem;
+    color: #0F4129;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 28px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #23311f;
+}
+
+.btn-voltar {
+    position: fixed;
+    left: 40px;
+    top: 150px;
+    display: inline-block;
+    text-decoration: none;
+    color: #0F4129;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid rgba(15, 65, 41, 0.3);
+    background: rgba(255, 253, 246, 0.92);
+    transition: 0.2s ease-in-out;
+    z-index: 1000;
+}
+
+.btn-voltar:hover {
+    background: #0F4129;
+    color: #ffffff;
+    border-color: #0F4129;
+}
+
+@media screen and (max-width: 900px) {
+    .post-container {
+        margin: 110px 16px 30px;
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .post-title {
+        font-size: 1.8rem;
+    }
+
+    .btn-voltar {
+        position: static;
+        display: block;
+        margin: 0 auto 20px;
+        text-align: center;
+        width: fit-content;
     }
 }
